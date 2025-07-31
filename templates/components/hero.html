@@ -1,0 +1,39 @@
+<!-- templates/components/hero.html -->
+<section class="hero" id="home">
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="name-animation">SAMEER  SHAIKH</h1>
+                <div class="title">Data Science Enthusiast | Automation Tester | Odoo Developer</div>
+                <p>Passionate about leveraging data to drive business decisions, creating efficient automation solutions, and developing robust ERP applications with Odoo. With a strong foundation in software development and a keen eye for detail.</p>
+                
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/analyst-sameer/" class="social-icon" target="_blank">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/Sameershaikh001" class="social-icon" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.hackerrank.com/profile/analystsameer" class="social-icon" target="_blank">
+                        <img src="https://cdn.worldvectorlogo.com/logos/hackerrank.svg" alt="HackerRank" style="height: 24px;" />
+                    </a>
+                    <a href="https://leetcode.com/u/sameershaikh0123/" class="social-icon" target="_blank">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png" alt="LeetCode" style="height: 22px;" />
+                    </a>
+                </div>
+
+                <div class="hero-actions">
+                    <a href="#contact" class="btn">Get In Touch</a>
+                    <a href="{{ url_for('static', filename='images/Sameer_Shaikh_CV.pdf') }}" class="btn btn-outline" target="_blank">Download CV</a>
+                </div>
+            </div>
+
+            <div class="hero-image">
+                <div class="profile-img-container">
+                    <img src="{{ url_for('static', filename='images/sameer_photo.jpg') }}" alt="Sameer Shaikh" class="profile-img">
+                    <div class="profile-overlay"></div>
+                </div>
+            </div>            
+        </div>
+    </div>
+</section>

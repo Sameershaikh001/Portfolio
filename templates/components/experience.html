@@ -1,0 +1,22 @@
+<section id="experience" class="bg-light">
+    <div class="container">
+      <h2>Work Experience</h2>
+      <div class="experience-grid">
+        {% for exp in experiences %}
+        <div class="experience-card">
+          <div class="experience-header">
+            <h3>{{ exp.job_title }}</h3>
+            <div class="experience-date">{{ exp.period }}</div>
+          </div>
+          <h4>{{ exp.company }}</h4>
+          <p>{{ exp.description }}</p>
+          <ul class="experience-features">
+            {% for feature in exp.features %}
+            <li>{{ feature }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>

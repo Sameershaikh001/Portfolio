@@ -1,0 +1,24 @@
+<section id="certifications">
+    <div class="container">
+      <h2>Certifications</h2>
+      <div class="certifications-grid">
+        {% for cert in certifications %}
+        <div class="certification-card">
+          <div class="certification-badge">
+            <i class="fas fa-award"></i>
+          </div>
+          <div class="certification-content">
+            <h3 class="certification-title">{{ cert.title }}</h3>
+            <p class="certification-issuer">{{ cert.issuer }}</p>
+            <div class="certification-tags">
+              {% for tag in cert.tags %}
+              <span class="tech-tag">{{ tag }}</span>
+              {% endfor %}
+            </div>
+            <p class="certification-details">{{ cert.details }}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>

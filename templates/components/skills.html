@@ -1,0 +1,25 @@
+<section id="skills" class="bg-light">
+    <div class="container">
+      <h2>Skills</h2>
+      <div class="skills-container">
+        {% for category in skills %}
+        <div class="skill-category">
+          <h3>{{ category.category }}</h3>
+          <div class="skill-list">
+            {% for skill in category.skills %}
+            <div class="skill-item">
+              <div class="skill-icon">
+                <i class="{{ skill.icon }}"></i>
+              </div>
+              <div>
+                <h4>{{ skill.name }}</h4>
+                <p>{{ skill.details }}</p>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>

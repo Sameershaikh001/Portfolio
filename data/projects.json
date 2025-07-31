@@ -1,0 +1,23 @@
+[
+    {
+      "title": "Sales Prediction System",
+      "image_url": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
+      "description": "A machine learning model that predicts future sales based on historical data and market trends.",
+      "tech": ["Python", "Scikit-learn", "Pandas", "Flask"],
+      "project_link": "#"
+    },
+    {
+      "title": "Automated Testing Framework",
+      "image_url": "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
+      "description": "Custom testing framework for web applications with support for parallel execution.",
+      "tech": ["Selenium", "Java", "TestNG", "Jenkins"],
+      "project_link": "#"
+    },
+    {
+        "title": "Automated Testing Framework",
+        "image_url": "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
+        "description": "Custom testing framework for web applications with support for parallel execution.",
+        "tech": ["Selenium", "Java", "TestNG", "Jenkins"],
+        "project_link": "#"
+      }
+  ]

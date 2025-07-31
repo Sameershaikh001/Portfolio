@@ -1,0 +1,35 @@
+[
+    {
+      "job_title": "Senior Automation Tester",
+      "period": "2021 - Present",
+      "company": "Tech Solutions Inc.",
+      "description": "Developed and maintained automated testing frameworks for web and mobile applications.",
+      "features": [
+        "Reduced regression testing time by 70%",
+        "Created custom reporting dashboard",
+        "Mentored junior team members"
+      ]
+    },
+    {
+      "job_title": "Odoo Developer",
+      "period": "2019 - 2021",
+      "company": "ERP Solutions Ltd.",
+      "description": "Customized and implemented Odoo ERP solutions for various clients.",
+      "features": [
+        "Developed custom modules for inventory management",
+        "Integrated payment gateways with Odoo",
+        "Optimized database performance"
+      ]
+    },
+    {
+        "job_title": "Odoo Developer",
+        "period": "2019 - 2021",
+        "company": "ERP Solutions Ltd.",
+        "description": "Customized and implemented Odoo ERP solutions for various clients.",
+        "features": [
+          "Developed custom modules for inventory management",
+          "Integrated payment gateways with Odoo",
+          "Optimized database performance"
+        ]
+      }
+  ]

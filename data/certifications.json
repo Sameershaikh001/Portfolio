@@ -1,0 +1,20 @@
+[
+    {
+      "title": "AWS Certified Solutions Architect",
+      "issuer": "Amazon Web Services",
+      "tags": ["Cloud Architecture", "AWS", "DevOps"],
+      "details": "Issued: May 2022 | Credential ID: XYZJ23456"
+    },
+    {
+      "title": "Google Data Analytics Professional Certificate",
+      "issuer": "Google",
+      "tags": ["Data Analysis", "SQL", "Visualization"],
+      "details": "Issued: Feb 2021 | Credential ID: ABC788012"
+    },
+    {
+      "title": "ISTQB Certified Tester",
+      "issuer": "ISTQB",
+      "tags": ["Software Testing", "Quality Assurance", "Test Automation"],
+      "details": "Issued: Nov 2020 | Credential ID: DEF345678"
+    }
+  ]
