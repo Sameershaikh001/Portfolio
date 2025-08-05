@@ -1,24 +1,33 @@
 [
-    {
-      "category": "Technical Skills",
-      "skills": [
-        {"icon": "fas fa-code", "name": "Programming", "details": "Python, Java, JavaScript, SQL"},
-        {"icon": "fas fa-database", "name": "Databases", "details": "MySQL, PostgreSQL, MongoDB"},
-        {"icon": "fas fa-cloud", "name": "Cloud & DevOps", "details": "AWS, Docker, Jenkins, Git"}
-      ]
-    },
-    {
-      "category": "Data Science",
-      "skills": [
-        {"icon": "fas fa-chart-line", "name": "Data Analysis", "details": "Pandas, NumPy, SciPy"},
-        {"icon": "fas fa-brain", "name": "Machine Learning", "details": "Scikit-learn, TensorFlow, Keras"}
-      ]
-    },
-    {
-        "category": "Data Science",
-        "skills": [
-          {"icon": "fas fa-chart-line", "name": "Data Analysis", "details": "Pandas, NumPy, SciPy"},
-          {"icon": "fas fa-brain", "name": "Machine Learning", "details": "Scikit-learn, TensorFlow, Keras"}
-        ]
-      }
-  ]
+  {
+    "category": "Technical Skills",
+    "skills": [
+      {"icon": "fas fa-code", "name": "Programming", "details": "Python, Java, JavaScript, SQL, C++, C"},
+      {"icon": "fas fa-database", "name": "Databases", "details": "MySQL, PostgreSQL, MongoDB, SQLite"},
+      {"icon": "fas fa-cloud", "name": "Cloud & DevOps", "details": "AWS, Docker, Jenkins, Git, GitHub"},
+      {"icon": "fab fa-linux", "name": "Operating Systems", "details": "Linux/Ubuntu"},
+      {"icon": "fas fa-cogs", "name": "Odoo Development", "details": "Odoo ERP, Module Development"},
+      {"icon": "fas fa-server", "name": "Web Development", "details": "Flask, REST APIs"}
+    ]
+  },
+  {
+    "category": "Data Science & ML",
+    "skills": [
+      {"icon": "fas fa-chart-line", "name": "Data Analysis", "details": "Pandas, NumPy, SciPy"},
+      {"icon": "fas fa-brain", "name": "Machine Learning", "details": "Scikit-learn, TensorFlow, Keras"},
+      {"icon": "fas fa-project-diagram", "name": "Deep Learning", "details": "Neural Networks, LLMs"},
+      {"icon": "fas fa-table", "name": "Data Preprocessing", "details": "ETL, Feature Engineering"},
+      {"icon": "fas fa-chart-pie", "name": "Data Visualization", "details": "Power BI, Matplotlib, Seaborn"}
+    ]
+  },
+  {
+    "category": "Testing & Automation",
+    "skills": [
+      {"icon": "fas fa-bug", "name": "Automation Testing", "details": "Selenium WebDriver"},
+      {"icon": "fas fa-vial", "name": "Software Testing", "details": "Test Automation, TestNG"},
+      {"icon": "fas fa-plug", "name": "API Testing", "details": "Postman, REST APIs"},
+      {"icon": "fas fa-spider", "name": "Web Scraping", "details": "BeautifulSoup, Selenium"},
+      {"icon": "fas fa-file-alt", "name": "API Documentation", "details": "Swagger, Postman"}
+    ]
+  }
+]

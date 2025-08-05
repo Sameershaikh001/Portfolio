@@ -1,23 +1,29 @@
 [
-    {
-      "title": "Sales Prediction System",
-      "image_url": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
-      "description": "A machine learning model that predicts future sales based on historical data and market trends.",
-      "tech": ["Python", "Scikit-learn", "Pandas", "Flask"],
-      "project_link": "#"
-    },
-    {
-      "title": "Automated Testing Framework",
-      "image_url": "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
-      "description": "Custom testing framework for web applications with support for parallel execution.",
-      "tech": ["Selenium", "Java", "TestNG", "Jenkins"],
-      "project_link": "#"
-    },
-    {
-        "title": "Data Analyst",
-        "image_url": "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
-        "description": "Custom testing framework for web applications with support for parallel execution.",
-        "tech": ["Selenium", "Java", "TestNG", "Jenkins"],
-        "project_link": "#"
-      }
-  ]
+  {
+      "title": "FIFA Dataset Web Scraping with Python",
+      "image_url": "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
+      "description": "Analyze FIFA player data with Python using web scraping, preprocessing, EDA, and visualizations to uncover football insights.",
+      "tech": ["Python", "Web Scraping", "EDA", "Data Analysis"],
+      "project_link": "https://github.com/Sameershaikh001/FIFA-Data-Analysis",
+      "date": "Aug 2024",
+      "organization": "DevTown"
+  },
+  {
+      "title": "Cricket Battle Simulator",
+      "image_url": "https://images.unsplash.com/photo-1531415074968-036ba1b575da?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
+      "description": "A Python-based cricket game where users compete against the computer in batting and bowling. Features input validation, score tracking, and results display.",
+      "tech": ["Python", "Game Development", "User Interaction"],
+      "project_link": "https://github.com/Sameershaikh001/Cricket-Battle-Simulator",
+      "date": "Jun 2024",
+      "organization": "Personal Project"
+  },
+  {
+      "title": "Quiz Competition Data Analysis Using Power BI",
+      "image_url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
+      "description": "Developed a Power BI-based analysis for a quiz competition. Managed registrations, group formation, and visualized data effectively.",
+      "tech": ["Power BI", "Data Analysis", "Team Management"],
+      "project_link": "https://www.linkedin.com/in/analyst-sameer/details/projects/1736442555755/single-media-viewer/?profileId=ACoAAD8lSDUBbNP5de-CwgVdvazkFea-zQuHbkw",
+      "date": "Jan 2025",
+      "organization": "Academic Project"
+  }
+]
