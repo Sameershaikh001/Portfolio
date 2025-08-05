@@ -930,3 +930,137 @@ textarea.form-control {
 .name-animation span:nth-child(10) { animation-delay: 1.3s; }
 .name-animation span:nth-child(11) { animation-delay: 1.4s; }
 .name-animation span:nth-child(12) { animation-delay: 1.5s; }
+
+/* Enhanced Certifications Section CSS */
+.certifications {
+    background-color: var(--light);
+    padding: 100px 20px;
+}
+
+.certifications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.certification-card {
+    background: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border: 1px solid var(--light-gray);
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    border-top: 4px solid var(--secondary);
+    height: 100%;
+}
+
+.certification-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(14, 165, 233, 0.15);
+}
+
+.certification-header {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.certification-badge {
+    min-width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--light-gray);
+    border-radius: 50%;
+    color: var(--secondary);
+    font-size: 1.8rem;
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+
+.certification-content {
+    flex: 1;
+    min-width: 0; /* Fixes flexbox overflow issues */
+}
+
+.certification-title {
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+    color: var(--primary);
+    line-height: 1.3;
+    word-break: break-word; /* Ensures long words break properly */
+}
+
+.certification-issuer {
+    font-weight: 500;
+    margin-bottom: 15px;
+    color: var(--dark);
+    font-size: 1.1rem;
+}
+
+.certification-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.certification-tag {
+    background: var(--light-gray);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--primary);
+    white-space: nowrap; /* Prevents tags from breaking */
+}
+
+.certification-details {
+    font-size: 0.85rem;
+    color: var(--gray);
+    margin-top: auto;
+    padding-top: 15px;
+    border-top: 1px solid var(--light-gray);
+    word-break: break-all; /* Handles long credential IDs */
+    overflow-wrap: anywhere; /* Additional breaking for very long strings */
+}
+
+/* Special treatment for cards with long content */
+.certification-card.long-credential .certification-details {
+    font-size: 0.8rem;
+    line-height: 1.4;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .certifications-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .certification-header {
+        flex-direction: column;
+    }
+    
+    .certification-badge {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .certifications {
+        padding: 60px 15px;
+    }
+    
+    .certification-title {
+        font-size: 1.1rem;
+    }
+    
+    .certification-details {
+        font-size: 0.75rem;
+    }
+}

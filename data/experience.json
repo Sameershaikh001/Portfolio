@@ -1,35 +1,88 @@
 [
-    {
-      "job_title": "Senior Automation Tester",
-      "period": "2021 - Present",
-      "company": "Tech Solutions Inc.",
-      "description": "Developed and maintained automated testing frameworks for web and mobile applications.",
-      "features": [
-        "Reduced regression testing time by 70%",
-        "Created custom reporting dashboard",
-        "Mentored junior team members"
-      ]
-    },
-    {
-      "job_title": "Odoo Developer",
-      "period": "2019 - 2021",
-      "company": "ERP Solutions Ltd.",
-      "description": "Customized and implemented Odoo ERP solutions for various clients.",
-      "features": [
-        "Developed custom modules for inventory management",
-        "Integrated payment gateways with Odoo",
-        "Optimized database performance"
-      ]
-    },
-    {
-        "job_title": "Odoo Developer",
-        "period": "2019 - 2021",
-        "company": "ERP Solutions Ltd.",
-        "description": "Customized and implemented Odoo ERP solutions for various clients.",
-        "features": [
-          "Developed custom modules for inventory management",
-          "Integrated payment gateways with Odoo",
-          "Optimized database performance"
-        ]
-      }
-  ]
+  {
+    "job_title": "Automation Testing Intern",
+    "period": "Mar 2025 - Present · 6 mos",
+    "company": "Sublime Technologies",
+    "description": "Worked as an Automation & API Testing Intern, gaining experience in API testing, automation testing, frontend testing, and bug reporting.",
+    "features": [
+      "API testing using Postman",
+      "Automation testing with Selenium WebDriver",
+      "Frontend testing for React.js applications",
+      "Bug reporting and tracking",
+      "ERP development: Integrated ISO modules"
+    ]
+  },
+  {
+    "job_title": "Machine Learning Intern",
+    "period": "Jul 2024 - Aug 2024 · 2 mos",
+    "company": "Cognifyz Technologies",
+    "description": "Built machine learning models and recommendation systems for restaurant analytics.",
+    "features": [
+      "Developed ML models to predict restaurant ratings",
+      "Designed restaurant recommendation system",
+      "Conducted geographical analysis of restaurants",
+      "Created data visualizations for insights"
+    ]
+  },
+  {
+    "job_title": "Data Analyst Intern",
+    "period": "Jun 2024 - Aug 2024 · 3 mos",
+    "company": "DevTown",
+    "description": "Project-based internship focusing on data analysis and machine learning.",
+    "features": [
+      "Data Analysis and Visualization",
+      "Machine Learning model development",
+      "Database management with MySQL",
+      "Statistical analysis implementation",
+      "Career counseling insights"
+    ]
+  },
+  {
+    "job_title": "Data Analyst Trainee",
+    "period": "Jun 2024 - Aug 2024 · 3 mos",
+    "company": "DevTown",
+    "description": "Structured training program in Data Analysis techniques.",
+    "features": [
+      "Python programming for data analysis",
+      "Web scraping techniques",
+      "JSON data processing",
+      "SQLite database management"
+    ]
+  },
+  {
+    "job_title": "Data Analyst Intern",
+    "period": "May 2024 - Jun 2024 · 2 mos",
+    "company": "Internship Studio",
+    "description": "Retail sales data analysis and reporting.",
+    "features": [
+      "Designed SQL database schemas for retail data",
+      "Data cleaning with Python and SQL",
+      "Sales trend and customer behavior analysis",
+      "Created Excel dashboards with Python visualizations"
+    ]
+  },
+  {
+    "job_title": "Junior Data Analyst",
+    "period": "Sep 2023 - Oct 2023 · 2 mos",
+    "company": "Tech Guru",
+    "description": "Data pipeline development and visualization.",
+    "features": [
+      "Developed data pipelines with Python/Pandas",
+      "Advanced data analysis with SQL/Python",
+      "Created interactive Power BI dashboards",
+      "Designed Flask-based web application for data reports"
+    ]
+  },
+  {
+    "job_title": "Python Trainee",
+    "period": "Aug 2023 - Aug 2023 · 1 mo",
+    "company": "CloudThat",
+    "description": "Python training and internship program.",
+    "features": [
+      "Python programming fundamentals",
+      "Software development practices",
+      "Project management skills",
+      "Communication and soft skills development"
+    ]
+  }
+]
