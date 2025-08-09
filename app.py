@@ -30,12 +30,8 @@ def start_ping_loop():
                 start_time = time.time()
                 response = requests.get(url)
                 ping_time = (time.time() - start_time) * 1000  # Calculate ping time in ms
-                print(
-                    f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} | "
-                    f"Keep-alive ping to {url} | "
-                    f"Status: {response.status_code} | "
-                    f"Response: {ping_time:.2f}ms"
-                )
+                # Replace print() with app.logger in your ping function:
+                app.logger.info(f"{datetime.now()} | Keep-alive ping to {url} | Status: {response.status_code}")
             except Exception as e:
                 print(f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} | Keep-alive failed: {str(e)}")
             time.sleep(30)  # 30-second interval between pings
