@@ -3,10 +3,10 @@ import json
 import os
 from flask_mail import Mail, Message
 import config
-import threading  # For background ping
-import requests   # For HTTP requests
-import time       # For sleep interval
-from datetime import datetime  # For timestamps
+import threading
+import requests
+import time
+from datetime import datetime
 
 # Initialize Flask application
 app = Flask(__name__)
@@ -20,56 +20,54 @@ app.secret_key = app.config['SECRET_KEY']
 # Initialize Flask-Mail for email functionality
 mail = Mail(app)
 
-# ===== Keep-Alive Functionality =====
+# ===== Enhanced Keep-Alive Functionality =====
 def start_ping_loop():
-    """Background thread to ping the app every 30 seconds"""
+    """Background thread to ping the app every 30 seconds with improved error handling"""
     def ping_server():
-        url = "https://analystsameer.onrender.com"  # REPLACE WITH YOUR RENDER URL
+        url = "https://analystsameer.onrender.com"  # Your Render URL
         while True:
             try:
                 start_time = time.time()
-                response = requests.get(url)
-                ping_time = (time.time() - start_time) * 1000  # Calculate ping time in ms
-                # Replace print() with app.logger in your ping function:
-                app.logger.info(f"{datetime.now()} | Keep-alive ping to {url} | Status: {response.status_code}")
+                response = requests.get(url, timeout=10)
+                ping_time = (time.time() - start_time) * 1000
+                app.logger.info(
+                    f"Keep-alive | {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} | "
+                    f"URL: {url} | Status: {response.status_code} | "
+                    f"Latency: {ping_time:.2f}ms"
+                )
+            except requests.exceptions.RequestException as e:
+                app.logger.error(f"Keep-alive failed: {str(e)}")
             except Exception as e:
-                print(f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} | Keep-alive failed: {str(e)}")
-            time.sleep(30)  # 30-second interval between pings
+                app.logger.error(f"Unexpected keep-alive error: {str(e)}")
+            
+            time.sleep(30)  # 30-second interval
 
-    # Start the thread (daemon=True allows it to exit with main thread)
-    thread = threading.Thread(target=ping_server, daemon=True)
-    thread.start()
+    if not app.debug:  # Only start in production
+        thread = threading.Thread(target=ping_server, daemon=True)
+        thread.start()
+        app.logger.info("Keep-alive thread started")
 # ===== END Keep-Alive =====
 
 def load_data_from_json(filename):
-    """
-    Helper function to safely load data from JSON files
-    Args:
-        filename (str): Name of the JSON file to load (e.g., 'projects.json')
-    Returns:
-        list: Loaded data or empty list if file not found/invalid
-    """
+    """Helper function to safely load data from JSON files"""
     data_path = os.path.join(app.root_path, 'data', filename)
     
     try:
         with open(data_path, 'r', encoding='utf-8') as file:
             return json.load(file)
     except FileNotFoundError:
-        print(f"Warning: {filename} not found in data directory. Using empty list.")
+        app.logger.warning(f"{filename} not found in data directory")
         return []
     except json.JSONDecodeError as e:
-        print(f"Error: Invalid JSON in {filename}. Error: {str(e)}. Using empty list.")
+        app.logger.error(f"Invalid JSON in {filename}: {str(e)}")
         return []
     except Exception as e:
-        print(f"Unexpected error loading {filename}: {str(e)}. Using empty list.")
+        app.logger.error(f"Error loading {filename}: {str(e)}")
         return []
 
 @app.route('/')
 def index():
-    """
-    Main route that serves the portfolio homepage
-    Loads all data from JSON files and passes it to the template
-    """
+    """Main route that serves the portfolio homepage"""
     certifications = load_data_from_json('certifications.json')
     experiences = load_data_from_json('experience.json')
     projects = load_data_from_json('projects.json')
@@ -85,10 +83,7 @@ def index():
 
 @app.route('/send_message', methods=['POST'])
 def send_message():
-    """
-    Handles form submission from the contact section
-    Processes the message and sends email notifications
-    """
+    """Handles contact form submissions"""
     if request.method == 'POST':
         name = request.form.get('name', '').strip()
         email = request.form.get('email', '').strip()
@@ -104,50 +99,47 @@ def send_message():
                 sender=app.config['MAIL_USERNAME'],
                 recipients=[app.config['RECIPIENT_EMAIL']]
             )
-            msg.body = f"""
-            New message from your portfolio website:
+            msg.body = f"""New message from your portfolio website:
             
-            Name: {name}
-            Email: {email}
-            Message: 
-            {message}
+Name: {name}
+Email: {email}
+Message: 
+{message}
             """
-            
             mail.send(msg)
-            flash('Your message has been sent successfully! I will get back to you soon.', 'success')
-            
+            flash('Message sent successfully!', 'success')
         except Exception as e:
-            app.logger.error(f"Failed to send email: {str(e)}")
-            flash('Sorry, there was an error sending your message. Please try again later.', 'danger')
+            app.logger.error(f"Email failed: {str(e)}")
+            flash('Error sending message. Please try again.', 'danger')
         
         return redirect(url_for('index', _anchor='contact'))
 
 def send_sms_notification(name, email):
-    """
-    Optional function to send SMS notification (requires Twilio setup)
-    """
+    """Optional SMS notifications via Twilio"""
     if all([app.config.get('TWILIO_ACCOUNT_SID'), 
             app.config.get('TWILIO_AUTH_TOKEN'),
             app.config.get('TWILIO_PHONE_NUMBER'),
             app.config.get('RECIPIENT_PHONE_NUMBER')]):
-        
         try:
             from twilio.rest import Client
             client = Client(app.config['TWILIO_ACCOUNT_SID'], 
-                           app.config['TWILIO_AUTH_TOKEN'])
-            
+                         app.config['TWILIO_AUTH_TOKEN'])
             message = client.messages.create(
-                body=f"New portfolio message from {name} ({email})",
+                body=f"New message from {name} ({email})",
                 from_=app.config['TWILIO_PHONE_NUMBER'],
                 to=app.config['RECIPIENT_PHONE_NUMBER']
             )
-            app.logger.info(f"SMS sent: {message.sid}")
+            app.logger.info(f"SMS notification sent: {message.sid}")
         except Exception as e:
-            app.logger.error(f"Failed to send SMS: {str(e)}")
+            app.logger.error(f"SMS failed: {str(e)}")
 
 if __name__ == '__main__':
-    # Start keep-alive thread
+    # Initialize keep-alive
     start_ping_loop()
     
     # Run the application
-    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 3000)))
+    app.run(
+        host='0.0.0.0',
+        port=int(os.environ.get('PORT', 3000)),
+        debug=os.environ.get('FLASK_DEBUG', 'false').lower() == 'true'
+    )
