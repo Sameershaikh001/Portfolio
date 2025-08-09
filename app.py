@@ -3,6 +3,10 @@ import json
 import os
 from flask_mail import Mail, Message
 import config
+import threading  # For background ping
+import requests   # For HTTP requests
+import time       # For sleep interval
+from datetime import datetime  # For timestamps
 
 # Initialize Flask application
 app = Flask(__name__)
@@ -16,6 +20,31 @@ app.secret_key = app.config['SECRET_KEY']
 # Initialize Flask-Mail for email functionality
 mail = Mail(app)
 
+# ===== Keep-Alive Functionality =====
+def start_ping_loop():
+    """Background thread to ping the app every 30 seconds"""
+    def ping_server():
+        url = "https://analystsameer.onrender.com"  # REPLACE WITH YOUR RENDER URL
+        while True:
+            try:
+                start_time = time.time()
+                response = requests.get(url)
+                ping_time = (time.time() - start_time) * 1000  # Calculate ping time in ms
+                print(
+                    f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} | "
+                    f"Keep-alive ping to {url} | "
+                    f"Status: {response.status_code} | "
+                    f"Response: {ping_time:.2f}ms"
+                )
+            except Exception as e:
+                print(f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} | Keep-alive failed: {str(e)}")
+            time.sleep(30)  # 30-second interval between pings
+
+    # Start the thread (daemon=True allows it to exit with main thread)
+    thread = threading.Thread(target=ping_server, daemon=True)
+    thread.start()
+# ===== END Keep-Alive =====
+
 def load_data_from_json(filename):
     """
     Helper function to safely load data from JSON files
@@ -24,7 +53,6 @@ def load_data_from_json(filename):
     Returns:
         list: Loaded data or empty list if file not found/invalid
     """
-    # Construct full path to the JSON file in the data directory
     data_path = os.path.join(app.root_path, 'data', filename)
     
     try:
@@ -46,7 +74,6 @@ def index():
     Main route that serves the portfolio homepage
     Loads all data from JSON files and passes it to the template
     """
-    # Load all data from respective JSON files
     certifications = load_data_from_json('certifications.json')
     experiences = load_data_from_json('experience.json')
     projects = load_data_from_json('projects.json')
@@ -67,17 +94,14 @@ def send_message():
     Processes the message and sends email notifications
     """
     if request.method == 'POST':
-        # Get form data
         name = request.form.get('name', '').strip()
         email = request.form.get('email', '').strip()
         message = request.form.get('message', '').strip()
         
-        # Basic validation
         if not all([name, email, message]):
             flash('Please fill in all fields.', 'danger')
             return redirect(url_for('index', _anchor='contact'))
         
-        # Send email notification
         try:
             msg = Message(
                 subject="New Message From Your Portfolio",
@@ -95,9 +119,6 @@ def send_message():
             
             mail.send(msg)
             flash('Your message has been sent successfully! I will get back to you soon.', 'success')
-            
-            # Here you could add SMS notification using Twilio if configured
-            # send_sms_notification(name, email)
             
         except Exception as e:
             app.logger.error(f"Failed to send email: {str(e)}")
@@ -129,5 +150,8 @@ def send_sms_notification(name, email):
             app.logger.error(f"Failed to send SMS: {str(e)}")
 
 if __name__ == '__main__':
-    # Run the application in debug mode
-    app.run(debug=True)
+    # Start keep-alive thread
+    start_ping_loop()
+    
+    # Run the application
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 3000)))
